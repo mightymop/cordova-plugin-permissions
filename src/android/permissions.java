@@ -62,7 +62,7 @@ public class permissions extends CordovaPlugin {
   }
 
   private void processResult(int requestCode, String[] permissions,
-                             int[] grantResult){
+                             int[] grantResults){
     this.gotNoResult = false;
     switch (requestCode) {
       case PERMISSION_REQUEST_CODE:
