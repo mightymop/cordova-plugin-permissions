@@ -92,7 +92,8 @@ public class permissions extends CordovaPlugin {
       }
 
       this.callbackContext = callbackContext;
-      cordova.getActivity().requestPermissions(listToAsk.toArray(new String[listToAsk.size()]), PERMISSION_REQUEST_CODE);
+      cordova.requestPermissions(this,PERMISSION_REQUEST_CODE,listToAsk.toArray(new String[listToAsk.size()]));
+      
     } catch (Exception e) {
       Log.e("cordova-plugin-permissions", e.getMessage());
       callbackContext.error(e.getMessage());
