@@ -1,34 +1,34 @@
 {
-  "_from": "git+https://github.com/mightymop/cordova-plugin-getmaster.git",
-  "_id": "cordova-plugin-getmaster@1.0.0",
+  "_from": "git+https://github.com/mightymop/cordova-plugin-permissions.git",
+  "_id": "cordova-plugin-permissions@1.0.0",
   "_inBundle": false,
   "_integrity": "",
-  "_location": "/cordova-plugin-getmaster",
+  "_location": "/cordova-plugin-permissions",
   "_phantomChildren": {},
   "_requested": {
     "type": "git",
-    "raw": "https://github.com/mightymop/cordova-plugin-getmaster.git",
-    "rawSpec": "https://github.com/mightymop/cordova-plugin-getmaster.git",
-    "saveSpec": "git+https://github.com/mightymop/cordova-plugin-getmaster.git",
-    "fetchSpec": "https://github.com/mightymop/cordova-plugin-getmaster.git",
+    "raw": "https://github.com/mightymop/cordova-plugin-permissions.git",
+    "rawSpec": "https://github.com/mightymop/cordova-plugin-permissions.git",
+    "saveSpec": "git+https://github.com/mightymop/cordova-plugin-permissions.git",
+    "fetchSpec": "https://github.com/mightymop/cordova-plugin-permissions.git",
     "gitCommittish": null
   },
   "_requiredBy": [
     "#DEV:/",
     "#USER"
   ],
-  "_resolved": "git+https://github.com/mightymop/cordova-plugin-getmaster.git",
-  "_spec": "https://github.com/mightymop/cordova-plugin-getmaster.git",
+  "_resolved": "git+https://github.com/mightymop/cordova-plugin-permissions.git",
+  "_spec": "https://github.com/mightymop/cordova-plugin-permissions.git",
   "author": "",
   "bundleDependencies": false,
   "cordova": {
-    "id": "cordova-plugin-getmaster",
+    "id": "cordova-plugin-permissions",
     "platforms": [
       "android"
     ]
   },
   "deprecated": false,
-  "description": "cordova plugin add https://github.com/mightymop/cordova-plugin-getmaster.git\r ### 2. read README.md",
+  "description": "cordova plugin add https://github.com/mightymop/cordova-plugin-permissions.git\r ### 2. read README.md",
   "engines": [
     {
       "name": "cordova",
@@ -40,7 +40,7 @@
     "cordova-android"
   ],
   "license": "ISC",
-  "name": "cordova-plugin-getmaster",
+  "name": "cordova-plugin-permissions",
   "types": "./types/index.d.ts",
   "version": "1.0.0"
 }
