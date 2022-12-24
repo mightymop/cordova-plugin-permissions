@@ -12,11 +12,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class permissions extends CordovaPlugin {
 
   private static final int PERMISSION_REQUEST_CODE = 12345;
   private CallbackContext callbackContext;
+  private boolean gotNoResult  = false;
 
   private void check(final JSONArray data, final CallbackContext callbackContext, Context ctx) {
 
@@ -47,10 +50,20 @@ public class permissions extends CordovaPlugin {
     }
 
   }
-
+  @Override
+  public void onRequestPermissionResult(int requestCode, String[] permissions,
+                                         int[] grantResults) {
+    processResult(requestCode,permissions,grantResults);
+  }
   @Override
   public void onRequestPermissionsResult(int requestCode, String[] permissions,
                                          int[] grantResults) {
+    processResult(requestCode,permissions,grantResults);
+  }
+
+  private void processResult(int requestCode, String[] permissions,
+                             int[] grantResult){
+    this.gotNoResult = false;
     switch (requestCode) {
       case PERMISSION_REQUEST_CODE:
         JSONArray arr = new JSONArray();
@@ -92,12 +105,25 @@ public class permissions extends CordovaPlugin {
       }
 
       this.callbackContext = callbackContext;
+      this.gotNoResult = true;
       cordova.requestPermissions(this,PERMISSION_REQUEST_CODE,listToAsk.toArray(new String[listToAsk.size()]));
-      
+
     } catch (Exception e) {
       Log.e("cordova-plugin-permissions", e.getMessage());
       callbackContext.error(e.getMessage());
     }
+  }
+
+  private void setCancelTimer() {
+    Timer timer = new Timer();
+    timer.schedule(new TimerTask() {
+      @Override
+      public void run() {
+        gotNoResult=false;
+        callbackContext.error("TIMEOUT");
+      }
+    }, 10*1000);
+
   }
 
   @Override
