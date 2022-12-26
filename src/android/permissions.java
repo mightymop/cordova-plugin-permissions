@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.PermissionHelper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -106,7 +107,7 @@ public class permissions extends CordovaPlugin {
 
       this.callbackContext = callbackContext;
       this.gotNoResult = true;
-      cordova.requestPermissions(this,PERMISSION_REQUEST_CODE,listToAsk.toArray(new String[listToAsk.size()]));
+      PermissionHelper.requestPermissions(this,PERMISSION_REQUEST_CODE,listToAsk.toArray(new String[listToAsk.size()]));
 
     } catch (Exception e) {
       Log.e("cordova-plugin-permissions", e.getMessage());
