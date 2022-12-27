@@ -107,7 +107,7 @@ public class permissions extends CordovaPlugin {
 
       this.callbackContext = callbackContext;
       this.gotNoResult = true;
-      PermissionHelper.requestPermissions(this,PERMISSION_REQUEST_CODE,listToAsk.toArray(new String[listToAsk.size()]));
+      cordova.requestPermissions(this,PERMISSION_REQUEST_CODE,listToAsk.toArray(new String[listToAsk.size()]));
 
     } catch (Exception e) {
       Log.e("cordova-plugin-permissions", e.getMessage());
@@ -134,6 +134,7 @@ public class permissions extends CordovaPlugin {
       cordova.getThreadPool().execute(new Runnable() {
         public void run() {
           ask(data, callbackContext);
+          setCancelTimer();
         }
       });
 
